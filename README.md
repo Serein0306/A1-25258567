@@ -3,6 +3,7 @@
 **Unit:** PROG2004 Object Oriented Programming
 **Assessment:** Assessment 1 (Portfolio/Programming, 40%)
 **Student:** Dong Xinyang (25258567)
+**Repository:** <https://github.com/Serein0306/A1-25258567>
 
 A small appointment system for a health service, built with Java. There is no
 user interface and nothing is saved: the project is the set of collaborating
