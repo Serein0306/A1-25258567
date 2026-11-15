@@ -1,0 +1,261 @@
+
+================================================================
+PART 3 - THE HEALTH PROFESSIONALS OF THE CLINIC
+================================================================
+1. General Practitioner #1042 - Dr Mia Chen
+    Working days: Wed, Fri
+    Medicare provider number: 281334
+    Authorised to prescribe medication and refer to specialists
+    Service given: Dr Mia Chen prescribed a course of antibiotics for Sam Taylor and referred the patient for a blood test.
+
+2. General Practitioner #1078 - Dr Owen Baker
+    Working days: Mon, Tue, Wed, Thu, Fri
+    Medicare provider number: 290117
+    Authorised to prescribe medication and refer to specialists
+    Service given: Dr Owen Baker prescribed a course of antibiotics for Sam Taylor and referred the patient for a blood test.
+
+3. General Practitioner #1091 - Dr Priya Raman
+    Working days: Mon, Tue, Wed
+    Medicare provider number: 301882
+    Authorised to prescribe medication and refer to specialists
+    Service given: Dr Priya Raman prescribed a course of antibiotics for Sam Taylor and referred the patient for a blood test.
+
+4. Nurse #2015 - Nurse Grace Whitfield
+    Working days: Thu, Fri
+    Based on: Ward 4C
+    Duties: observations, wound care, blood samples
+    Service given: Nurse Grace Whitfield took a blood sample from Sam Taylor and labelled it for pathology, then recorded the patient's observations.
+
+5. Nurse #2020 - Nurse Liam Foster
+    Working days: Mon, Tue, Wed, Thu, Fri
+    Based on: Outpatient Treatment Room
+    Duties: observations, wound care, blood samples
+    Service given: Nurse Liam Foster took a blood sample from Sam Taylor and labelled it for pathology, then recorded the patient's observations.
+
+6. Physiotherapist #3011 - Physiotherapist Ruby Santos
+    Working days: Wed, Fri
+    Focus area: musculoskeletal rehabilitation
+    Duties: assessment, manual therapy, exercise programmes
+    Service given: Physiotherapist Ruby Santos designed a six week musculoskeletal rehabilitation programme for Sam Taylor and reviewed their walking technique.
+
+7. Radiographer #4012 - Radiographer Tomas Nowak
+    Working days: Wed
+    Imaging modality: CT
+    Duties: patient positioning, image acquisition, quality checks
+    Service given: Radiographer Tomas Nowak performed a CT scan on Sam Taylor and sent the images to the reporting radiologist, then checked the images for quality.
+
+8. Pharmacist #5007 - Pharmacist Aisha Bello
+    Working days: Wed, Thu, Fri
+    Licence number: 771234
+    Duties: dispensing, medication reviews, interaction checks
+    Service given: Pharmacist Aisha Bello dispensed amoxicillin 500 mg to Sam Taylor and checked it for interactions, and explained the dosage schedule.
+
+Health professionals in the team: 8
+
+================================================================
+PART 4 - MODELLING ONE APPOINTMENT
+================================================================
+An appointment joins a patient, a professional, a day and a time:
+Appointment at 09:00 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Trying to build an invalid appointment on purpose:
+  Refused by the Appointment constructor: Nurse Grace Whitfield (#2015) does not work on Wednesday, so this appointment cannot be made.
+
+
+-- Three appointments in the order they happen to be created --
+Appointment at 13:00 on Wednesday
+    Patient      : Cathy Wu (0433 556 677)
+    Professional : Physiotherapist #3011 - Physiotherapist Ruby Santos
+    Their roster : Wed, Fri
+
+Appointment at 09:00 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointment at 10:30 on Wednesday
+    Patient      : Ben Carter (0422 334 455)
+    Professional : Nurse #2020 - Nurse Liam Foster
+    Their roster : Mon, Tue, Wed, Thu, Fri
+
+Appointments shown: 3
+
+-- The same three appointments after Collections.sort(...) --
+Appointment at 09:00 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointment at 10:30 on Wednesday
+    Patient      : Ben Carter (0422 334 455)
+    Professional : Nurse #2020 - Nurse Liam Foster
+    Their roster : Mon, Tue, Wed, Thu, Fri
+
+Appointment at 13:00 on Wednesday
+    Patient      : Cathy Wu (0433 556 677)
+    Professional : Physiotherapist #3011 - Physiotherapist Ruby Santos
+    Their roster : Wed, Fri
+
+Appointments shown: 3
+
+================================================================
+PART 6 - THE APPOINTMENT SYSTEM END TO END
+================================================================
+Clinic timetable : 08:00 to 16:00 in 30 minute slots (16 slots)
+Bookings are for : Wednesday only
+Slots today      : 16 slots, from 08:00 to 15:30
+
+-- 6.1 Booking appointments --
+[ OK ]      Booked 15:30 on Wednesday for Alice Nguyen (0412 345 678) with Dr Mia Chen (#1042).
+[ OK ]      Booked 09:00 on Wednesday for Ben Carter (0422 334 455) with Dr Priya Raman (#1091).
+[ OK ]      Booked 10:30 on Wednesday for Cathy Wu (0433 556 677) with Nurse Liam Foster (#2020).
+[ OK ]      Booked 11:00 on Wednesday for Daniel Osei (0445 667 788) with Physiotherapist Ruby Santos (#3011).
+[ OK ]      Booked 09:00 on Wednesday for Alice Nguyen (0412 345 678) with Dr Mia Chen (#1042).
+[ OK ]      Booked 14:00 on Wednesday for Erin Blake (0456 778 899) with Radiographer Tomas Nowak (#4012).
+[ OK ]      Booked 13:30 on Wednesday for Ben Carter (0422 334 455) with Pharmacist Aisha Bello (#5007).
+[ OK ]      Booked 08:00 on Wednesday for Frank Doyle (0467 889 900) with Dr Owen Baker (#1078).
+Appointments held: 8
+
+-- 6.2 All appointments, from earliest to latest --
+Appointment at 08:00 on Wednesday
+    Patient      : Frank Doyle (0467 889 900)
+    Professional : General Practitioner #1078 - Dr Owen Baker
+    Their roster : Mon, Tue, Wed, Thu, Fri
+
+Appointment at 09:00 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointment at 09:00 on Wednesday
+    Patient      : Ben Carter (0422 334 455)
+    Professional : General Practitioner #1091 - Dr Priya Raman
+    Their roster : Mon, Tue, Wed
+
+Appointment at 10:30 on Wednesday
+    Patient      : Cathy Wu (0433 556 677)
+    Professional : Nurse #2020 - Nurse Liam Foster
+    Their roster : Mon, Tue, Wed, Thu, Fri
+
+Appointment at 11:00 on Wednesday
+    Patient      : Daniel Osei (0445 667 788)
+    Professional : Physiotherapist #3011 - Physiotherapist Ruby Santos
+    Their roster : Wed, Fri
+
+Appointment at 13:30 on Wednesday
+    Patient      : Ben Carter (0422 334 455)
+    Professional : Pharmacist #5007 - Pharmacist Aisha Bello
+    Their roster : Wed, Thu, Fri
+
+Appointment at 14:00 on Wednesday
+    Patient      : Erin Blake (0456 778 899)
+    Professional : Radiographer #4012 - Radiographer Tomas Nowak
+    Their roster : Wed
+
+Appointment at 15:30 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointments shown: 8
+
+-- 6.3 Filtering by health professional ID, then sorting the subset --
+Appointments found for ID 1042: 2 (in the order they were booked)
+Appointment at 15:30 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointment at 09:00 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointments shown: 2
+The same subset after sortInTimeOrder(...):
+Appointment at 09:00 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointment at 15:30 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointments shown: 2
+
+-- 6.4 Filtering by health professional object --
+Appointments found for Nurse #2020 - Nurse Liam Foster: 1
+Appointment at 10:30 on Wednesday
+    Patient      : Cathy Wu (0433 556 677)
+    Professional : Nurse #2020 - Nurse Liam Foster
+    Their roster : Mon, Tue, Wed, Thu, Fri
+
+Appointments shown: 1
+
+-- 6.5 Filtering by patient mobile number --
+Appointments found for 0412 345 678: 2
+Appointment at 15:30 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointment at 09:00 on Wednesday
+    Patient      : Alice Nguyen (0412 345 678)
+    Professional : General Practitioner #1042 - Dr Mia Chen
+    Their roster : Wed, Fri
+
+Appointments shown: 2
+
+-- 6.6 Operations that cannot be completed --
+[ REFUSED ] Booking refused: Dr Mia Chen (#1042) already has an appointment at 09:00.
+[ REFUSED ] Booking refused: 07:30 is not a bookable slot. The clinic runs 08:00 to 16:00 in 30 minute slots (16 slots).
+[ REFUSED ] Booking refused: 12:15 is not a bookable slot. The clinic runs 08:00 to 16:00 in 30 minute slots (16 slots).
+[ REFUSED ] Booking refused: Nurse Grace Whitfield (#2015) does not work on Wednesday. Their roster is Thu, Fri.
+[ REFUSED ] Booking refused: no patient was supplied.
+[ REFUSED ] Cancellation refused: no appointment found for professional 9999 at 09:00.
+[ REFUSED ] Cancellation refused: no appointment found for mobile number 0499999999.
+Appointments held: 8 (unchanged - nothing invalid was added or removed)
+
+-- 6.7 Cancelling appointments by the three supported routes --
+[ OK ]      Cancelled 09:00 appointment for Dr Mia Chen with Alice Nguyen (0412 345 678).
+[ OK ]      Cancelled 15:30 appointment for Dr Mia Chen with Alice Nguyen (0412 345 678).
+[ OK ]      Cancelled 1 appointment(s) for mobile number 0433556677.
+Appointments held: 5
+
+-- 6.8 All appointments after the cancellations --
+Appointment at 08:00 on Wednesday
+    Patient      : Frank Doyle (0467 889 900)
+    Professional : General Practitioner #1078 - Dr Owen Baker
+    Their roster : Mon, Tue, Wed, Thu, Fri
+
+Appointment at 09:00 on Wednesday
+    Patient      : Ben Carter (0422 334 455)
+    Professional : General Practitioner #1091 - Dr Priya Raman
+    Their roster : Mon, Tue, Wed
+
+Appointment at 11:00 on Wednesday
+    Patient      : Daniel Osei (0445 667 788)
+    Professional : Physiotherapist #3011 - Physiotherapist Ruby Santos
+    Their roster : Wed, Fri
+
+Appointment at 13:30 on Wednesday
+    Patient      : Ben Carter (0422 334 455)
+    Professional : Pharmacist #5007 - Pharmacist Aisha Bello
+    Their roster : Wed, Thu, Fri
+
+Appointment at 14:00 on Wednesday
+    Patient      : Erin Blake (0456 778 899)
+    Professional : Radiographer #4012 - Radiographer Tomas Nowak
+    Their roster : Wed
+
+Appointments shown: 5
+
+-- 6.9 Appointments for health professional 1042 after the cancellations --
+(no appointments)
+
+End of the demonstration.
